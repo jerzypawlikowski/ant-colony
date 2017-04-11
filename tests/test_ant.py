@@ -41,7 +41,7 @@ def test_go_to_next_random_middle():
     ant = Ant(0)
     with mock.patch("acs.ant.random") as mocked_random:
         mocked_random.return_value = 0.5
-        ant._go_to_next(graph=graph, available=[3, 1, 3])
+        ant._go_to_next(graph=graph, available=[3, 1, 2])
     mocked_random.assert_called_once()
     assert ant.path[-1] == 1
 
