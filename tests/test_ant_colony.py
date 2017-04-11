@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 import mock
 
-from acs.ant_colony import AntColony
+from ant_colony.ant_colony import AntColony
 
 
 def test_reset_ants():
     ant_colony = AntColony(m=3)
     graph = mock.Mock()
     graph.nodes = [0] * 5
-    with mock.patch("acs.ant_colony.randint") as mocked_randint:
+    with mock.patch("ant_colony.ant_colony.randint") as mocked_randint:
         ant_colony.reset_ants(graph=graph)
 
     mocked_randint.assert_has_calls((

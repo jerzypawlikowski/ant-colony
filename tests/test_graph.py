@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import mock
 
-from acs.graph import Graph, Node
+from ant_colony.graph import Graph, Node
 
 
 def test_node_distance():

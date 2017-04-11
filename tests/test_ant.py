@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import mock
 
-from acs.ant import Ant
+from ant_colony.ant import Ant
 
 
 def test_init():
@@ -39,7 +39,7 @@ def test_go_to_next_random_middle():
     graph = mock.Mock()
     graph.get_probability = lambda i, j: 44
     ant = Ant(0)
-    with mock.patch("acs.ant.random") as mocked_random:
+    with mock.patch("ant_colony.ant.random") as mocked_random:
         mocked_random.return_value = 0.5
         ant._go_to_next(graph=graph, available=[3, 1, 2])
     mocked_random.assert_called_once()
@@ -50,7 +50,7 @@ def test_go_to_next_random_maximum():
     graph = mock.Mock()
     graph.get_probability = lambda i, j: 44
     ant = Ant(0)
-    with mock.patch("acs.ant.random") as mocked_random:
+    with mock.patch("ant_colony.ant.random") as mocked_random:
         mocked_random.return_value = 1
         ant._go_to_next(graph=graph, available=[2, 1, 3])
     mocked_random.assert_called_once()
@@ -62,7 +62,7 @@ def test_do_cycle():
     graph.get_probability = lambda i, j: 44
     graph.nodes = [1, 2, 3, 4]
     ant = Ant(0)
-    with mock.patch("acs.ant.random") as mocked_random:
+    with mock.patch("ant_colony.ant.random") as mocked_random:
         mocked_random.return_value = 1
         ant.do_cycle(graph)
     mocked_random.assert_has_calls(tuple() * 3)
